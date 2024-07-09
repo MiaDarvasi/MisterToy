@@ -1,4 +1,11 @@
-.toy-filter {
+.toy-filter form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    width: 100%;
+
     background-color: var(--clr2bg);
     padding: 1em;
+    border-radius: 5px;
+    margin-inline: 0.5rem ;
 }

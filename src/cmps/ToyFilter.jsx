@@ -21,23 +21,22 @@ export function ToyFilter({ filterBy, onSetFilter }) {
     }
 
     return (
-        <section className="toy-filter full main-layout">
-            <h2>Toys Filter</h2>
+        <section className="toy-filter">
             <form >
-                <label htmlFor="vendor">Vendor:</label>
+                <label htmlFor="name">Name:</label>
                 <input type="text"
-                    id="vendor"
-                    name="txt"
-                    placeholder="By vendor"
-                    value={filterByToEdit.txt}
+                    id="name"
+                    name="name"
+                    placeholder="By name"
+                    value={filterByToEdit.name}
                     onChange={handleChange}
                 />
 
-                <label htmlFor="maxPrice">Max price:</label>
+                <label htmlFor="maxPrice">Price:</label>
                 <input type="number"
                     id="maxPrice"
                     name="maxPrice"
-                    placeholder="By max price"
+                    placeholder="By price"
                     value={filterByToEdit.maxPrice || ''}
                     onChange={handleChange}
                 />

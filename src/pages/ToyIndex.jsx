@@ -26,7 +26,6 @@ export function ToyIndex() {
     }
 
     function onRemoveToy(toyId) {
-        // removeToy(toyId)
         removeToyOptimistic(toyId)
             .then(() => showSuccessMsg('Toy removed'))
             .catch(err => {
@@ -63,7 +62,7 @@ export function ToyIndex() {
 
     return (
         <div>
-            <h3>Toys App</h3>
+            <h3>Our Toys</h3>
             <main>
                 <button onClick={onAddToy}>Add Toy ⛐</button>
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />

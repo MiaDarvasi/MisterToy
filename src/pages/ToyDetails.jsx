@@ -26,10 +26,11 @@ export function ToyDetails() {
 
     if (!toy) return <div>Loading...</div>
     return <section className="toy-details">
-        <h1>Toy vendor : {toy.vendor}</h1>
+        <h1>Toy Name : {toy.name}</h1>
         <h5>Price: ${toy.price}</h5>
         <p>⛐</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptas cumque tempore, aperiam sed dolorum rem! Nemo quidem, placeat perferendis tempora aspernatur sit, explicabo veritatis corrupti perspiciatis repellat, enim quibusdam!</p>
-        <Link to={`/toy/edit/${toy._id}`}>Edit</Link>
+        <button><Link to={`/toy/edit/${toy._id}`}>Edit</Link></button>
+        <button><Link to={`/toy`}>Back</Link></button>
     </section>
 }
