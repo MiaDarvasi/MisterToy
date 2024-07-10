@@ -9,9 +9,8 @@ ul {
 }
 
 .toy-list li {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    display: grid;
+    grid-template-rows: 6fr 1fr;
     background-color: var(--clr1bg);
     margin: 0.5em;
 }
