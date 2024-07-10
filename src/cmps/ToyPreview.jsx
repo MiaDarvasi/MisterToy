@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom'
 
 export function ToyPreview({ toy }) {
+    console.log(toy)
 
     return (
         <article>
             <h4>{toy.name}</h4>
-            <h1>⛐</h1>
+            <img src={toy.imgSrc} />
+            <section>
             <p>Price: <span>${toy.price.toLocaleString()}</span></p>
-            {/* {toy.owner && <p>Owner: <Link to={`/user/${toy.owner._id}`}>{toy.owner.fullname}</Link></p>} */}
-            {/* <hr /> */}
             <section className="edit-links">
                 <Link to={`/toy/${toy._id}`}>Details</Link> |
                 <Link to={`/toy/edit/${toy._id}`}>Edit</Link>
+            </section>
             </section>
         </article>
     )

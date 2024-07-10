@@ -64,7 +64,7 @@ export function ToyIndex() {
         <div>
             <h3>Our Toys</h3>
             <main>
-                <button onClick={onAddToy}>Add Toy ⛐</button>
+                <button onClick={onAddToy}>Add Toy</button>
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
                 {isLoading
                     ? <div>Loading...</div>
