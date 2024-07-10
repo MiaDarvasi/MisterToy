@@ -2,6 +2,8 @@
 import { utilService } from './util.service.js'
 import { httpService } from './http.service.js'
 
+import barbie from "../assets/img/barbie.png"
+
 const BASE_URL = 'toy/'
 
 export const toyService = {
@@ -27,6 +29,7 @@ function remove(toyId) {
 }
 
 function save(toy) {
+    console.log(toy)
     if (toy._id) {
         return httpService.put(BASE_URL, toy)
     } else {
@@ -37,13 +40,14 @@ function save(toy) {
 
 function getEmptyToy() {
     return {
-        vendor: 'Susita-' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
-        speed: utilService.getRandomIntInclusive(75, 200),
+        name: 'Barbie',
+        price: utilService.getRandomIntInclusive(20, 350),
+        inStock: true,
+        imgSrc: barbie
     }
 }
 
 
 function getDefaultFilter() {
-    return { txt: '', maxPrice: '' }
+    return { name: '', maxPrice: '' }
 }
