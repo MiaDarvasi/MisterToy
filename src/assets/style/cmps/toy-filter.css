@@ -1,11 +1,24 @@
 .toy-filter form {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 
     width: 100%;
 
     background-color: var(--clr2bg);
     padding: 1em;
     border-radius: 5px;
-    margin-inline: 0.5rem ;
+    margin-inline: 0.5rem;
+}
+
+.toy-filter form input {
+    all: unset;
+    max-width: 10rem;
+    border-bottom: 1px solid var(--gray3);
+    font-size: 0.8rem;
+}
+
+.toy-filter h3 {
+    text-align: start;
+    margin-inline-start: 0.7rem;
 }

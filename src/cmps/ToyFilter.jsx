@@ -22,8 +22,8 @@ export function ToyFilter({ filterBy, onSetFilter }) {
 
     return (
         <section className="toy-filter">
+            <h3>Search Toys</h3>
             <form >
-                <label htmlFor="name">Name:</label>
                 <input type="text"
                     id="name"
                     name="name"
@@ -31,8 +31,6 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                     value={filterByToEdit.name}
                     onChange={handleChange}
                 />
-
-                <label htmlFor="maxPrice">Price:</label>
                 <input type="number"
                     id="maxPrice"
                     name="maxPrice"

@@ -5,8 +5,9 @@ export function HomePage() {
 
 
     return (
-        <section>
+        <section className="home-page">
             <h2>Mister Toy</h2 >
+            <img src="./src/assets/img/toy.svg"/>
         </section >
     )
 }
