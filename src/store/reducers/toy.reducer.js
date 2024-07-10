@@ -20,7 +20,6 @@ const initialState = {
 
 export function toyReducer(state = initialState, cmd = {}) {
     switch (cmd.type) {
-        //* Toys
         case SET_TOYS:
             return {
                 ...state,
