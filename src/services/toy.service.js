@@ -6,13 +6,26 @@ import barbie from "../assets/img/barbie.png"
 
 const BASE_URL = 'toy/'
 
+const labels = [
+    'On wheels',
+    'Box game',
+    'Art',
+    'Baby',
+    'Doll',
+    'Puzzle',
+    'Outdoor',
+    'Battery Powered',
+]
+
 export const toyService = {
     query,
     getById,
     save,
     remove,
     getEmptyToy,
-    getDefaultFilter
+    getDefaultFilter,
+    getToyLabels,
+    getLabelCountsAndLabels
 }
 
 
@@ -43,6 +56,7 @@ function getEmptyToy() {
         name: 'Barbie',
         price: utilService.getRandomIntInclusive(20, 350),
         inStock: true,
+        labels: ['Baby', 'Doll'],
         imgSrc: barbie
     }
 }
@@ -51,3 +65,39 @@ function getEmptyToy() {
 function getDefaultFilter() {
     return { name: '', maxPrice: '' }
 }
+
+function getToyLabels() {
+    return [...labels]
+}
+
+function _getLabelsStats() {
+    return query().then(toysArr => {
+        const labelCounts = {}
+        toysArr.forEach(toy => {
+            toy.labels.forEach(label => {
+
+                if (labelCounts[label]) {
+                    labelCounts[label]++
+                } else {
+                    labelCounts[label] = 1
+                }
+            })
+        })
+        const labelStats = Object.keys(labelCounts).map(label => ({
+            label,
+            count: labelCounts[label]
+        }))
+        return labelStats
+    })
+}
+
+
+function getLabelCountsAndLabels() {
+    return _getLabelsStats().then(labelStats => {
+        const label = labelStats.map(stat => stat.label)
+        const count = labelStats.map(stat => stat.count)
+
+        return { label, count }
+    })
+}
+

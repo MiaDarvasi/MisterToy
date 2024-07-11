@@ -1,74 +1,107 @@
-import { useState, useEffect } from 'react'
-import { useNavigate, useParams, Link } from 'react-router-dom'
-
-import { toyService } from "../services/toy.service.js"
-import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
-import { saveToy } from "../store/actions/toy.actions.js"
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { toyService } from '../services/toy.service'
+import { saveToy } from '../store/actions/toy.actions'
 
 export function ToyEdit() {
-    const [toyToEdit, setToyToEdit] = useState(toyService.getEmptyToy())
-    const navigate = useNavigate()
-    const { toyId } = useParams()
+  const [toyToEdit, setToyToEdit] = useState(toyService.getEmptyToy())
 
-    useEffect(() => {
-        if (!toyId) return
-        loadToy()
-    }, [])
+  const { toyId } = useParams()
+  const navigate = useNavigate()
 
-    function loadToy() {
-        toyService.getById(toyId)
-            .then((toy) => setToyToEdit(toy))
-            .catch((err) => {
-                console.log('Had issues in toy details', err)
-                navigate('/toy')
-            })
-    }
+  const labels = toyService.getToyLabels()
 
-    function handleChange({ target }) {
-        let { value, type, name: field } = target
-        value = type === 'number' ? +value : value
-        setToyToEdit((prevToy) => ({ ...prevToy, [field]: value }))
-    }
+  useEffect(() => {
+    if (!toyId) return
+    loadToy()
+  }, [])
 
-    function onSaveToy(ev) {
-        ev.preventDefault()
-        saveToy(toyToEdit)
-            .then((toy) => {
-                console.log('toy saved', toy);
-                showSuccessMsg('Toy saved!')
-                navigate('/toy')
-            })
-            .catch(err => {
-                console.log('err', err)
-                showErrorMsg('Cannot save toy')
-            })
-    }
+  function loadToy() {
+    toyService.getById(toyId)
+      .then(setToyToEdit)
+      .catch(err => {
+        console.log('Had issued in toy edit:', err)
+        navigate('/toy')
+        showErrorMsg('Toy not found!')
+      })
+  }
 
-    return <section className="toy-edit">
-        <h2>{toyToEdit.id ? 'Edit this toy' : 'Add a new toy'}</h2>
+  function handleChange({ target }) {
+    const field = target.name
+    const value = target.type === 'number' ? +target.value || '' : target.value
+    setToyToEdit(prevToy => ({ ...prevToy, [field]: value }))
+  }
 
-        <form onSubmit={onSaveToy}>
-            <label htmlFor="name">Name : </label>
-            <input type="text"
-                name="name"
-                id="name"
-                placeholder="Enter name..."
-                value={toyToEdit.name}
-                onChange={handleChange}
-            />
-            <label htmlFor="price">Price : </label>
-            <input type="number"
-                name="price"
-                id="price"
-                placeholder="Enter price"
-                value={toyToEdit.price}
-                onChange={handleChange}
-            />
+  function handleLabelChange({ target }) {
+    const value = target.value
+    setToyToEdit(prevToy => {
+      const newLabels = prevToy.labels.includes(value)
+        ? prevToy.labels.filter(label => label !== value)
+        : [...prevToy.labels, value]
+      return { ...prevToy, labels: newLabels }
+    })
+  }
+  
 
-            <div>
-                <button>{toyToEdit._id ? 'Save' : 'Add'}</button>
-                <Link to="/toy">Cancel</Link>
+  function onSaveToy(ev) {
+    ev.preventDefault()
+    saveToy(toyToEdit)
+      .then(() => {
+        showSuccessMsg('Toy saved successfully')
+        navigate('/toy')
+      })
+      .catch(err => {
+        showErrorMsg('Cannot save toy')
+      })
+  }
+
+  const { name, price, labels: selectedLabels } = toyToEdit
+
+  return (
+    <section className="toy-edit">
+      <h2>{toyToEdit._id ? 'Edit' : 'Add'} Toy</h2>
+
+      <form onSubmit={onSaveToy}>
+        <label htmlFor="name">Name:</label>
+        <input
+          onChange={handleChange}
+          value={name}
+          type="text"
+          name="name"
+          id="name"
+          required
+        />
+
+        <label htmlFor="price">Price:</label>
+        <input
+          onChange={handleChange}
+          value={price}
+          type="number"
+          name="price"
+          id="price"
+          min={1}
+          required
+        />
+
+        <label>Labels:</label>
+        <div className="labels-container">
+          {labels.map(label => (
+            <div key={label}>
+              <input
+                type="checkbox"
+                id={label}
+                value={label}
+                checked={selectedLabels.includes(label)}
+                onChange={handleLabelChange}
+              />
+              <label htmlFor={label}>{label}</label>
             </div>
-        </form>
+          ))}
+        </div>
+
+        <button>{toyToEdit._id ? 'Save' : 'Add'}</button>
+      </form>
     </section>
+  )
 }

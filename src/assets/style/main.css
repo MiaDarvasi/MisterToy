@@ -10,8 +10,6 @@
 
 /* Components */
 @import 'cmps/AppHeader.css';
-@import 'cmps/AppFooter.css';
-@import 'cmps/ToggleBtn.css';
 @import 'cmps/UserMsg.css';
 
 @import 'cmps/toy-filter.css';

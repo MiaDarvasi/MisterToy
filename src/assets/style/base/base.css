@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -43,7 +43,7 @@ a {
 
 
 
-/* Dont stretch my Media */
+ Dont stretch my Media 
 img,
 embed,
 video,
@@ -53,4 +53,4 @@ object {
 
 a.active {
   color: var(--clr2);
-}
+} */

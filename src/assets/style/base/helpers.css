@@ -1,6 +1,6 @@
 /* flex helpers */
 
-.flex {
+/* .flex {
   display: flex;
 }
 
@@ -18,25 +18,25 @@
 
 .flex.align-center{
     align-items: center;
-}
+} */
 
 /* text helpers */
 
-.colored-text {
+/* .colored-text {
     color: var(--clr1);
-}
+} */
 
 /* list helpers */
 
-.clean-list {
+/* .clean-list {
     padding: 0;
     margin: 0;
     list-style-type: none;
-}
+} */
 
 /* font awsome */
 
-.fa {
+/* .fa {
     font-family: fa;
 }
 
@@ -54,4 +54,4 @@
 
 .fa.fa-behance::before {
     content: "\f1b4";
-}
+} */
