@@ -1,0 +1,13 @@
+ul {
+    padding: 0;
+}
+
+.toy-list {
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1020px;
+    margin: auto;
+    margin-block-start: 2rem;
+}

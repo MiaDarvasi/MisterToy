@@ -2,7 +2,7 @@
 import { utilService } from './util.service.js'
 import { httpService } from './http.service.js'
 
-import barbie from "../assets/img/barbie.png"
+import barbieglitter from "../assets/img/barbieglitter.png"
 
 const BASE_URL = 'toy/'
 
@@ -53,11 +53,11 @@ function save(toy) {
 
 function getEmptyToy() {
     return {
-        name: 'Barbie',
+        name: 'Glitter Barbie',
         price: utilService.getRandomIntInclusive(20, 350),
         inStock: true,
         labels: ['Baby', 'Doll'],
-        imgSrc: barbie
+        imgSrc: barbieglitter
     }
 }
 

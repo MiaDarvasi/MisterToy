@@ -22,7 +22,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
 
     return (
         <section className="toy-filter">
-            <h3>Search Toys</h3>
+            <h3>Search Barbies</h3>
             <form >
                 <input type="text"
                     id="name"

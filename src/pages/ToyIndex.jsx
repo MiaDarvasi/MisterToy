@@ -10,9 +10,9 @@ import { loadToys, removeToy, removeToyOptimistic, saveToy, setFilterBy } from '
 export function ToyIndex() {
     const toys = useSelector(storeState => storeState.toyModule.toys)
     const isLoading = useSelector(storeState => storeState.toyModule.isLoading)
-    const filterBy = useSelector(storeState=>storeState.toyModule.filterBy)
+    const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
     const dispatch = useDispatch()
-    
+
     useEffect(() => {
         loadToys()
             .catch(err => {
@@ -22,7 +22,7 @@ export function ToyIndex() {
     }, [filterBy])
 
     function onSetFilter(filterBy) {
-        setFilterBy(filterBy)   
+        setFilterBy(filterBy)
     }
 
     function onRemoveToy(toyId) {
@@ -62,9 +62,11 @@ export function ToyIndex() {
 
     return (
         <div>
-            <h3>Our Toys</h3>
             <main>
-                <button onClick={onAddToy}>Add Toy</button>
+                <section className="main-top">
+                    <h3>Our Barbies</h3>
+                    <button onClick={onAddToy}>Add Barbie</button>
+                </section>
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
                 {isLoading
                     ? <div>Loading...</div>

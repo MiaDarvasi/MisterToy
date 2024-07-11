@@ -4,11 +4,11 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import { toyService } from '../services/toy.service.js'
 import { showErrorMsg } from '../services/event-bus.service.js'
 
-import barbie from '../assets/img/barbie.png'
-import gijoe from '../assets/img/gijoe.png'
-import racecar from '../assets/img/racecar.png'
-import plane from '../assets/img/plane.png'
-import truck from '../assets/img/truck.png'
+import barbiecasual from '../assets/img/barbiecasual.png'
+import barbiefancy from '../assets/img/barbiefancy.png'
+import barbieglitter from '../assets/img/barbieglitter.png'
+import barbiepink from '../assets/img/barbiepink.png'
+import barbieprincess from '../assets/img/barbieprincess.png'
 
 export function ToyDetails() {
     const [toy, setToy] = useState(null)
@@ -25,20 +25,20 @@ export function ToyDetails() {
             .then((toy) => {
                 setToy(toy)
                 switch (toy.name) {
-                    case 'Barbie':
-                        setCurrToySrc(barbie)
+                    case 'Casual Barbie':
+                        setCurrToySrc(barbiecasual)
                         break
-                    case 'GI-Joe':
-                        setCurrToySrc(gijoe)
+                    case 'Fancy Barbie':
+                        setCurrToySrc(barbiefancy)
                         break
-                    case 'Race Car':
-                        setCurrToySrc(racecar)
+                    case 'Glitter Barbie':
+                        setCurrToySrc(barbieglitter)
                         break
-                    case 'Model Plane':
-                        setCurrToySrc(plane)
+                    case 'Pink Barbie':
+                        setCurrToySrc(barbiepink)
                         break
-                    case 'Truck':
-                        setCurrToySrc(truck)
+                    case 'Princess Barbie':
+                        setCurrToySrc(barbieprincess)
                         break
                     default:
                         setCurrToySrc(null)
@@ -56,7 +56,7 @@ export function ToyDetails() {
 
     return (
         <section className="toy-details">
-            <h1>Toy Name: {toy.name}</h1>
+            <h1>{toy.name}</h1>
             <h5>Price: ${toy.price}</h5>
             {currToySrc && <img src={currToySrc} alt={toy.name} />}
             <p>

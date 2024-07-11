@@ -1,20 +1,19 @@
 import { Link } from 'react-router-dom'
 
-import barbie from '../assets/img/barbie.png'
-import gijoe from '../assets/img/gijoe.png'
-import racecar from '../assets/img/racecar.png'
-import plane from '../assets/img/plane.png'
-import truck from '../assets/img/truck.png'
-
+import barbiecasual from '../assets/img/barbiecasual.png'
+import barbiefancy from '../assets/img/barbiefancy.png'
+import barbieglitter from '../assets/img/barbieglitter.png'
+import barbiepink from '../assets/img/barbiepink.png'
+import barbieprincess from '../assets/img/barbieprincess.png'
 
 export function ToyPreview({ toy }) {
 
     let currToySrc
-    if(toy.name === 'Barbie') currToySrc = barbie
-    else if(toy.name === 'GI-Joe') currToySrc = gijoe
-    else if(toy.name === 'Race Car') currToySrc = racecar
-    else if(toy.name === 'Model Plane') currToySrc = plane
-    else if(toy.name === 'Truck') currToySrc = truck
+    if(toy.name === 'Casual Barbie') currToySrc = barbiecasual
+    else if(toy.name === 'Fancy Barbie') currToySrc = barbiefancy
+    else if(toy.name === 'Glitter Barbie') currToySrc = barbieglitter
+    else if(toy.name === 'Pink Barbie') currToySrc = barbiepink
+    else if(toy.name === 'Princess Barbie') currToySrc = barbieprincess
 
     return (
         <article>

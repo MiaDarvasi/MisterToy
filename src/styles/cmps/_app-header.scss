@@ -1,15 +1,22 @@
 .app-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
 
-    padding: 1rem;
-    background-color: var(--clr1);
-    color: var(--gray3);
+    background-color: $clr3;
+    color: $clr5;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-
+    
     .app-nav {
         display: flex;
         gap: 15px;
+        padding: 1rem;
+    }
+
+    img {
+        height: 3rem;
+        padding: 0;
+        padding-inline-start: 0.7rem;
     }
 }

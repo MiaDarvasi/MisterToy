@@ -1,0 +1,43 @@
+.toy-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+
+    max-width: 600px;
+
+    padding: 1rem;
+    background-color: $clr3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    margin: auto;
+    margin-block-start: 3rem;
+
+    img {
+        max-width: 150px;
+        justify-self: center;
+    }
+
+    h1 {
+        color: $clr1;
+        grid-column: 1 / span 2;
+    }
+
+    h5 {
+        grid-column: 1 / span 2;
+    }
+
+    button {
+        justify-self: center;
+        
+        width: 5rem;
+        
+        color: $clr-pink-light;
+        transition: 0.4s;
+    }
+
+    button:hover {
+        color: $clr1;
+        background-color: $clr3;
+    }
+}

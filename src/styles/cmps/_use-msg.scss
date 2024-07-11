@@ -1,0 +1,30 @@
+.user-msg {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 1rem;
+
+    padding: 1rem;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    &.success {
+        background-color: rgb(253, 205, 213);
+    }
+
+    &.error {
+        background-color: rgb(252, 85, 85);
+        color: white;
+    }
+
+    button {
+        font-size: .8em;
+        margin: auto;
+        width: 2rem;
+        justify-self: center;
+    }
+}

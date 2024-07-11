@@ -1,0 +1,51 @@
+.toy-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0.7rem;
+    background-color: $clr3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        transition: 0.4s;
+        background-color: rgb(241, 240, 240);
+    }
+    
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .edit-btns {
+        display: flex;
+        
+        button {
+            width: 100%;
+        }
+    }
+    
+    
+    .edit-links {
+        display: flex;
+        justify-content: center;
+        gap: 0.4em;
+        width: 50%;
+
+        margin: auto;
+        color: $clr1;
+
+        &>*:hover {
+            color: $clr-pink-light;
+            transition: 0.4s;
+        }
+    }
+
+    img {
+        max-height: 150px;
+        justify-self: center;
+    }
+
+}
