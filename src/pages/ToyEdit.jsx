@@ -60,7 +60,7 @@ export function ToyEdit() {
 
   return (
     <section className="toy-edit">
-      <h2>{toyToEdit._id ? 'Edit' : 'Add'} Toy</h2>
+      <h1>{toyToEdit._id ? 'Edit' : 'Add'} Barbie</h1>
 
       <form onSubmit={onSaveToy}>
         <label htmlFor="name">Name:</label>

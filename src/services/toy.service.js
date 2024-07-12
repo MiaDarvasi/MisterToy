@@ -42,7 +42,7 @@ function remove(toyId) {
 }
 
 function save(toy) {
-    console.log(toy)
+    // console.log(toy)
     if (toy._id) {
         return httpService.put(BASE_URL, toy)
     } else {

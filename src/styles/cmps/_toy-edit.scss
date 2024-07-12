@@ -1,0 +1,35 @@
+.toy-edit {
+    max-width: 400px;
+    padding: 2rem;
+    background-color: $clr3;
+    margin: auto;
+    margin-block-start: 1rem;
+    font-family: dosis-medium;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+
+    h1 {
+        color: $clr1;
+        margin: 0;
+        margin-block-end: 2rem;
+        font-size: 1.6rem;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        align-items: center;
+
+        button {
+            grid-column: 1 / span 2;
+            width: 5rem;
+            margin: auto;
+            margin-block-start: 1rem;
+        }
+
+        &>*:nth-child(5) {
+            align-self: start;
+        }
+    }
+}

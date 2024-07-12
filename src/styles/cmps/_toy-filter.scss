@@ -1,7 +1,8 @@
 .toy-filter {
 
-    background-color: $clr3;
+    background-color: $clr-pink-light;
     padding: 0.5rem;
+    border-radius: 5px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 
 
@@ -26,10 +27,11 @@
 
     }
 
-   h3 {
-    color: $clr-pink-light;
-        text-align: start;
+    h3 {
+        color: $clr3;
         margin: 0px 1rem 0.5rem 0;
+        padding-inline-start: 2rem;
         font-size: 1.1rem;
+        text-align: start;
     }
 }

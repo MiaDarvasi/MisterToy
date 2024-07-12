@@ -10,4 +10,32 @@ ul {
     max-width: 1020px;
     margin: auto;
     margin-block-start: 2rem;
+
+    &>*:first-child{
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+
+        img {
+            max-height: 450px;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+      
+    }
+
+    &>*:nth-child(8){
+        grid-column: 2 / span 2;
+        grid-row: 4 / span 2;
+
+        img {
+            max-height: 450px;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+      
+    }
 }

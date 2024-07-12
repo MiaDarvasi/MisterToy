@@ -17,7 +17,7 @@ export function ToyPreview({ toy }) {
 
     return (
         <article>
-            <h4>{toy.name}</h4>
+            <h1>{toy.name}</h1>
             <img src={currToySrc} />
             <section>
             <p>Price: <span>${toy.price.toLocaleString()}</span></p>

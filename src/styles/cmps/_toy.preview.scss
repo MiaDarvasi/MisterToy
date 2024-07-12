@@ -4,8 +4,13 @@
     justify-content: space-between;
     text-align: center;
     padding: 0.7rem;
-    background-color: $clr3;
+    background-color: lighten($clr-pink-very-light, 50%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h1 {
+        color: $clr1;
+        font-size: 1.5rem;
+    }
 
     &:hover {
         transition: 0.4s;
@@ -23,7 +28,8 @@
         display: flex;
         
         button {
-            width: 100%;
+            margin: auto;
+            margin-block-start: 1rem;
         }
     }
     
