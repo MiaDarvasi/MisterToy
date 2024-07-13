@@ -64,10 +64,14 @@ export function ToyIndex() {
         <div>
             <main>
                 <section className="main-top">
-                    <h3>Our Barbies</h3>
-                    <button onClick={onAddToy}>Add Barbie</button>
+                    <div className="search-title">
+                    <h3>Search</h3>
+                    <h3>our</h3>
+                    <h3>Barbies</h3>
+                    </div>
+                    <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+                    <button onClick={onAddToy}>Add  your Barbie!</button>
                 </section>
-                <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
                 {isLoading
                     ? <div>Loading...</div>
                     : <ToyList

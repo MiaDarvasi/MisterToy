@@ -1,37 +1,25 @@
 .toy-filter {
 
-    background-color: $clr-pink-light;
-    padding: 0.5rem;
-    border-radius: 5px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-
-
     form {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
-
-        width: 90%;
-
-        background-color: $clr4;
+        
+        background-color: rgba(240, 125, 163, 0.6);
         padding: 1em;
         border-radius: 5px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
         margin: auto;
 
         input {
             all: unset;
             max-width: 10rem;
-            border-bottom: 1px solid gray;
+            border-bottom: 1px solid $clr3;
             font-size: 0.8rem;
+
+            &::placeholder {
+                color: $clr3;
+            }
         }
-
-    }
-
-    h3 {
-        color: $clr3;
-        margin: 0px 1rem 0.5rem 0;
-        padding-inline-start: 2rem;
-        font-size: 1.1rem;
-        text-align: start;
     }
 }

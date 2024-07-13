@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { toyService } from '../services/toy.service'
 import { saveToy } from '../store/actions/toy.actions'
@@ -100,6 +100,7 @@ export function ToyEdit() {
           ))}
         </div>
 
+        <button><Link to={`/toy`}>Back</Link></button>
         <button>{toyToEdit._id ? 'Save' : 'Add'}</button>
       </form>
     </section>

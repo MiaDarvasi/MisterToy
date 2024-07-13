@@ -22,7 +22,6 @@ export function ToyFilter({ filterBy, onSetFilter }) {
 
     return (
         <section className="toy-filter">
-            <h3>Search</h3>
             <form >
                 <input type="text"
                     id="name"

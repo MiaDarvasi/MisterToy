@@ -97,7 +97,9 @@ function getLabelCountsAndLabels() {
         const label = labelStats.map(stat => stat.label)
         const count = labelStats.map(stat => stat.count)
 
-        return { label, count }
+        // console.log('labels:', label)
+        // console.log('count:', count)
+        return [ label, count ]
     })
 }
 
