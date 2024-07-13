@@ -42,12 +42,13 @@ export function ToyEdit() {
       return { ...prevToy, labels: newLabels }
     })
   }
-  
+
 
   function onSaveToy(ev) {
     ev.preventDefault()
     saveToy(toyToEdit)
       .then(() => {
+        console.log(toyToEdit)
         showSuccessMsg('Toy saved successfully')
         navigate('/toy')
       })
@@ -56,7 +57,8 @@ export function ToyEdit() {
       })
   }
 
-  const { name, price, labels: selectedLabels } = toyToEdit
+  const { name, price, labels: selectedLabels} = toyToEdit
+  console.log(toyToEdit)
 
   return (
     <section className="toy-edit">
@@ -106,3 +108,4 @@ export function ToyEdit() {
     </section>
   )
 }
+

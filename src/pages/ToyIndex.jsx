@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { ToyFilter } from '../cmps/ToyFilter.jsx'
 import { ToyList } from '../cmps/ToyList.jsx'
@@ -34,17 +35,17 @@ export function ToyIndex() {
             })
     }
 
-    function onAddToy() {
-        const toyToSave = toyService.getEmptyToy()
-        saveToy(toyToSave)
-            .then((savedToy) => {
-                showSuccessMsg(`Toy added (id: ${savedToy.vendor})`)
-            })
-            .catch(err => {
-                console.log('Cannot add toy', err)
-                showErrorMsg('Cannot add toy')
-            })
-    }
+    // function onAddToy() {
+    //     const toyToSave = toyService.getEmptyToy()
+    //     saveToy(toyToSave)
+    //         .then((savedToy) => {
+    //             showSuccessMsg(`Toy added (id: ${savedToy.vendor})`)
+    //         })
+    //         .catch(err => {
+    //             console.log('Cannot add toy', err)
+    //             showErrorMsg('Cannot add toy')
+    //         })
+    // }
 
     function onEditToy(toy) {
         const price = +prompt('New price?')
@@ -65,12 +66,13 @@ export function ToyIndex() {
             <main>
                 <section className="main-top">
                     <div className="search-title">
-                    <h3>Search</h3>
-                    <h3>our</h3>
-                    <h3>Barbies</h3>
+                        <h3>Search</h3>
+                        <h3>our</h3>
+                        <h3>Barbies</h3>
                     </div>
                     <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
-                    <button onClick={onAddToy}>Add  your Barbie!</button>
+                    <button><Link to={`/toy/edit`}>Add  your Barbie!</Link></button>
+                    {/* <button onClick={onAddToy}>Add  your Barbie!</button> */}
                 </section>
                 {isLoading
                     ? <div>Loading...</div>

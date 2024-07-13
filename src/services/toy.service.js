@@ -53,10 +53,10 @@ function save(toy) {
 
 function getEmptyToy() {
     return {
-        name: 'Glitter Barbie',
-        price: utilService.getRandomIntInclusive(20, 350),
+        name: '',
+        price: '',
         inStock: true,
-        labels: ['Baby', 'Doll'],
+        labels: [],
         imgSrc: barbieglitter
     }
 }
@@ -96,9 +96,6 @@ function getLabelCountsAndLabels() {
     return _getLabelsStats().then(labelStats => {
         const label = labelStats.map(stat => stat.label)
         const count = labelStats.map(stat => stat.count)
-
-        // console.log('labels:', label)
-        // console.log('count:', count)
         return [ label, count ]
     })
 }
