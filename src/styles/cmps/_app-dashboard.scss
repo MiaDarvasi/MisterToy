@@ -1,0 +1,13 @@
+.dashboard {
+
+    h1 {
+        color: $clr1;
+        font-size: 2rem;
+        margin-block-end: 2rem;
+    }
+
+    .pie-chart {
+        max-width: 300px;
+        margin: auto;
+    }
+}

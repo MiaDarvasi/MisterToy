@@ -57,7 +57,7 @@ export function ToyDetails() {
     return (
         <section className="toy-details">
             <h1>{toy.name}</h1>
-            <h5>Price: ${toy.price}</h5>
+            <p>Price: ${toy.price}</p>
             {currToySrc && <img src={currToySrc} alt={toy.name} />}
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptas cumque tempore, aperiam sed dolorum
