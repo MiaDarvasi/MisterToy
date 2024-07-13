@@ -1,11 +1,16 @@
 main {
     margin-inline: 1rem;
 
+
     .main-top {
         height: 360px;
         background-image: url("../assets/img/barbies.png");
         background-repeat: no-repeat;
         display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: start;
+        margin-block-start: 0.7rem;
         flex-direction: column;
         gap: 1rem;
         align-items: start;
@@ -28,9 +33,42 @@ main {
             h3:nth-child(2) {
                 font-size: 1.3rem;
             }
+        .search-title {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-block-start: 6rem;
+
+            h3 {
+                font-size: 3rem;
+                margin: 0;
+                line-height: 0.6;
+                color: $clr1;
+            }
+
+            h3:nth-child(2) {
+                font-size: 1.3rem;
+            }
         }
 
         button {
+            position: absolute;
+            top: 355px;
+            right: 2rem;
+            font-family: dolly;
+            padding: 0.5rem;
+            color: $clr1;
+            font-size: 1.5rem;
+            transition: 0.4s;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                color: $clr3;
+            }
+        }
+
+    }
+
             position: absolute;
             top: 355px;
             right: 2rem;
