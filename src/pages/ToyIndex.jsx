@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { ToyFilter } from '../cmps/ToyFilter.jsx'
 import { ToyList } from '../cmps/ToyList.jsx'
-import { toyService } from '../services/toy.service.js'
+// import { toyService } from '../services/toy.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { loadToys, removeToy, removeToyOptimistic, saveToy, setFilterBy } from '../store/actions/toy.actions.js'
 
@@ -12,7 +12,6 @@ export function ToyIndex() {
     const toys = useSelector(storeState => storeState.toyModule.toys)
     const isLoading = useSelector(storeState => storeState.toyModule.isLoading)
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
-    const dispatch = useDispatch()
 
     useEffect(() => {
         loadToys()
@@ -26,13 +25,15 @@ export function ToyIndex() {
         setFilterBy(filterBy)
     }
 
-    function onRemoveToy(toyId) {
-        removeToyOptimistic(toyId)
-            .then(() => showSuccessMsg('Toy removed'))
-            .catch(err => {
-                console.log('err:', err)
-                showErrorMsg('Cannot remove toy')
-            })
+    async function onRemoveToy(toyId) {
+        try {
+            await removeToyOptimistic(toyId)
+                showSuccessMsg('Toy removed successfully')
+        } catch (err) {
+            console.log('err:', err)
+            showErrorMsg('Cannot remove toy')
+        }
+
     }
 
     // function onAddToy() {
@@ -47,18 +48,17 @@ export function ToyIndex() {
     //         })
     // }
 
-    function onEditToy(toy) {
+    async function onEditToy(toy) {
         const price = +prompt('New price?')
         const toyToSave = { ...toy, price }
 
-        saveToy(toyToSave)
-            .then((savedToy) => {
-                showSuccessMsg(`Toy updated to price: $${savedToy.price}`)
-            })
-            .catch(err => {
-                console.log('Cannot update toy', err)
-                showErrorMsg('Cannot update toy')
-            })
+        try {
+            await saveToy(toyToSave)
+            showSuccessMsg(`Toy updated to price: $${savedToy.price}`)
+        } catch (err) {
+            console.log('Cannot update toy', err)
+            showErrorMsg('Cannot update toy')
+        }
     }
 
     return (

@@ -70,33 +70,31 @@ function getToyLabels() {
     return [...labels]
 }
 
-function _getLabelsStats() {
-    return query().then(toysArr => {
-        const labelCounts = {}
-        toysArr.forEach(toy => {
-            toy.labels.forEach(label => {
+async function _getLabelsStats() {
+    const toysArr = await query()
+    const labelCounts = {}
+    toysArr.forEach(toy => {
+        toy.labels.forEach(label => {
 
-                if (labelCounts[label]) {
-                    labelCounts[label]++
-                } else {
-                    labelCounts[label] = 1
-                }
-            })
+            if (labelCounts[label]) {
+                labelCounts[label]++
+            } else {
+                labelCounts[label] = 1
+            }
         })
-        const labelStats = Object.keys(labelCounts).map(label => ({
-            label,
-            count: labelCounts[label]
-        }))
-        return labelStats
     })
+    const labelStats = Object.keys(labelCounts).map(label => ({
+        label,
+        count: labelCounts[label]
+    }))
+    return labelStats
 }
 
 
-function getLabelCountsAndLabels() {
-    return _getLabelsStats().then(labelStats => {
-        const label = labelStats.map(stat => stat.label)
-        const count = labelStats.map(stat => stat.count)
-        return [ label, count ]
-    })
+async function getLabelCountsAndLabels() {
+    const labelStats = await _getLabelsStats()
+    const label = labelStats.map(stat => stat.label)
+    const count = labelStats.map(stat => stat.count)
+    return [label, count]
 }
 

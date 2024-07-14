@@ -17,14 +17,15 @@ export function ToyEdit() {
     loadToy()
   }, [])
 
-  function loadToy() {
-    toyService.getById(toyId)
-      .then(setToyToEdit)
-      .catch(err => {
-        console.log('Had issued in toy edit:', err)
-        navigate('/toy')
-        showErrorMsg('Toy not found!')
-      })
+  async function loadToy() {
+    try {
+      const toy = await toyService.getById(toyId)
+      setToyToEdit(toy)
+    } catch (err) {
+      console.log('Had issued in toy edit:', err)
+      navigate('/toy')
+      showErrorMsg('Toy not found!')
+    }
   }
 
   function handleChange({ target }) {
@@ -44,20 +45,20 @@ export function ToyEdit() {
   }
 
 
-  function onSaveToy(ev) {
+  async function onSaveToy(ev) {
     ev.preventDefault()
-    saveToy(toyToEdit)
-      .then(() => {
-        console.log(toyToEdit)
-        showSuccessMsg('Toy saved successfully')
-        navigate('/toy')
-      })
-      .catch(err => {
-        showErrorMsg('Cannot save toy')
-      })
+    try {
+      await saveToy(toyToEdit)
+      console.log(toyToEdit)
+      showSuccessMsg('Toy saved successfully')
+      navigate('/toy')
+    } catch (err) {
+      showErrorMsg('Cannot save toy')
+      console.log(err)
+    }
   }
 
-  const { name, price, labels: selectedLabels} = toyToEdit
+  const { name, price, labels: selectedLabels } = toyToEdit
   console.log(toyToEdit)
 
   return (

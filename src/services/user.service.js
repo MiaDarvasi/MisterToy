@@ -74,9 +74,5 @@ function getEmptyCredentials() {
 }
 
 
-// Test Data
-// userService.signup({username: 'bobo', password: 'bobo', fullname: 'Bobo McPopo'})
-// userService.login({username: 'bobo', password: 'bobo'})
-
 
 

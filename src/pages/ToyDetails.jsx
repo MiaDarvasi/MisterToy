@@ -20,36 +20,35 @@ export function ToyDetails() {
         loadToy()
     }, [toyId])
 
-    function loadToy() {
-        toyService.getById(toyId)
-            .then((toy) => {
-                setToy(toy)
-                switch (toy.name) {
-                    case 'Casual Barbie':
-                        setCurrToySrc(barbiecasual)
-                        break
-                    case 'Fancy Barbie':
-                        setCurrToySrc(barbiefancy)
-                        break
-                    case 'Glitter Barbie':
-                        setCurrToySrc(barbieglitter)
-                        break
-                    case 'Pink Barbie':
-                        setCurrToySrc(barbiepink)
-                        break
-                    case 'Princess Barbie':
-                        setCurrToySrc(barbieprincess)
-                        break
-                    default:
-                        setCurrToySrc(null)
-                        break
-                }
-            })
-            .catch((err) => {
-                console.error('Error loading toy details:', err);
-                showErrorMsg('Cannot load toy')
-                navigate('/toy')
-            });
+    async function loadToy() {
+        try {
+            const toy = await toyService.getById(toyId)
+            setToy(toy)
+            switch (toy.name) {
+                case 'Casual Barbie':
+                    setCurrToySrc(barbiecasual)
+                    break
+                case 'Fancy Barbie':
+                    setCurrToySrc(barbiefancy)
+                    break
+                case 'Glitter Barbie':
+                    setCurrToySrc(barbieglitter)
+                    break
+                case 'Pink Barbie':
+                    setCurrToySrc(barbiepink)
+                    break
+                case 'Princess Barbie':
+                    setCurrToySrc(barbieprincess)
+                    break
+                default:
+                    setCurrToySrc(null)
+                    break
+            }
+        } catch (err) {
+            console.error('Error loading toy details:', err);
+            showErrorMsg('Cannot load toy')
+            navigate('/toy')
+        }
     }
 
     if (!toy) return <div>Loading...</div>
